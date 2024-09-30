@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.fontTopBar {
+    @apply text-white hover:text-red-900 pointer-events-auto
+}
+
+.logo {
+    @apply lg:w-auto lg:pl-3
+}
+
+input {
+    @apply border border-black rounded-md
+}
+
+label {
+    @apply font-bold
+}
