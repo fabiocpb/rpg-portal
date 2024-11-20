@@ -10,6 +10,8 @@ import { CoHamburgerMenu } from "oh-vue-icons/icons"
 import { CoMagnifyingGlass } from "oh-vue-icons/icons"
 import { ViFileTypeImage } from "oh-vue-icons/icons";
 import { FcAddImage } from "oh-vue-icons/icons";
+import { IoExitOutline } from "oh-vue-icons/icons";
+
 
 import App from './App.vue'
 import perfil from './components/profile/perfil.vue'
@@ -22,12 +24,9 @@ import header from './components/layout/header.vue';
 import footer from './components/layout/footer.vue';
 import router from './routes'
 
-import "bootstrap/dist/css/bootstrap.min.css"
-import 'bootstrap'
-
 const app = createApp(App);
 
-addIcons(CoHamburgerMenu, CoMagnifyingGlass, ViFileTypeImage, FcAddImage);
+addIcons(CoHamburgerMenu, CoMagnifyingGlass, ViFileTypeImage, FcAddImage, IoExitOutline);
 
 app.component('v-icon', OhVueIcon);
 app.component('perfil', perfil)

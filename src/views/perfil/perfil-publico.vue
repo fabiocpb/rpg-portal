@@ -1,12 +1,19 @@
 <template>
-    <div class="flex flex-row bg-slate-200">
-        <div class="flex w-full border-r border-white">
-            <perfil :id="id"/>
+    <div class="bg-slate-200">
+        <div class="flex flex-row mx-32">
+            <div class="flex w-full border-r border-white">
+                <perfil modo="publico" :id="id"/>
+            </div>
+            <div class="flex flex-col w-full border-r border-white">
+                <div>
+                    <p class="mx-10 mb-0 mt-2 font-bold text-xl">Atividades</p>
+                </div>
+                <div>
+                    <mural modo="publico" :id="id"/>
+                </div>
+            </div>
         </div>
-        <div class="flex w-full border-r border-white">
-            <mural :id="id"/>
-        </div>
-  </div>
+    </div>
 </template>
 
 <script>

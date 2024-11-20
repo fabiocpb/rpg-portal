@@ -81,16 +81,16 @@
           "mesas": [
             {
                 "id":1,
-                "nome": "Mortal Kombat 3",
-                "sistema": "3D&T",
+                "nome": "Street Fighter",
+                "sistema": "Storyteller",
                 "criador": "Jonas",
                 "criação": "2024-02-11T09:42:31.614Z",
                 "imgmesa": "/src/assets/banner-mesas/mortal-kombat3.webp"
             },
             {
                 "id":2,
-                "nome": "GURPS Horror",
-                "sistema": "GURPS",
+                "nome": "Dragonlance",
+                "sistema": "D&D 5e",
                 "criador": "Ronaldo",
                 "criação": "2024-01-08T07:22:31.614Z",
                 "imgmesa": "/src/assets/banner-mesas/gurps-horror.webp"
@@ -116,7 +116,7 @@
         "boardgames": ["Zombicide", "Damas", "Gamão"],
         "egresso": "06/05/2021",
         "profimg": "/src/assets/profile-images/itamar01.webp",
-        "amigos": [3,2,4,5,6,7,8,9],
+        "amigos": [1,2,4,5,6,7,8,9],
         "postsTexto": [
             {
                 "id": 1,
@@ -222,7 +222,7 @@
         "boardgames": ["Dark Souls", "Munchkin", "Gamão"],
         "egresso": "02/08/2020",
         "profimg": "/src/assets/profile-images/heloisa01.webp",
-        "amigos": [2,3,4,5,6,7,8,9],
+        "amigos": [2,3,4,1,6,7,8,9],
         "postsTexto": [
             {
                 "id": 1,
@@ -275,7 +275,7 @@
         "boardgames": ["Zombicide", "Damas", "Gamão"],
         "egresso": "12/12/2023",
         "profimg": "/src/assets/profile-images/carla01.webp",
-        "amigos": [2,3,4,5,6,7,8,9],
+        "amigos": [2,3,4,5,1,7,8,9],
         "postsTexto": [
             {
                 "id": 1,
@@ -293,7 +293,7 @@
           "mesas": [
             {
                 "id":1,
-                "nome": "Mortal Kombat 3",
+                "nome": "Wraith: The Oblivion",
                 "sistema": "3D&T",
                 "criador": "Jonas",
                 "criação": "2024-02-11T09:42:31.614Z",
@@ -301,7 +301,7 @@
             },
             {
                 "id":2,
-                "nome": "GURPS Horror",
+                "nome": "GURPS Cyberpunk",
                 "sistema": "GURPS",
                 "criador": "Ronaldo",
                 "criação": "2024-01-08T07:22:31.614Z",
@@ -309,7 +309,7 @@
             },
             {
                 "id":3,
-                "nome": "Call of Cthulhu",
+                "nome": "Tagmar",
                 "sistema": "D&D 5e",
                 "criador": "Ronaldo",
                 "criação": "2024-01-08T07:22:31.614Z",

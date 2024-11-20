@@ -4,8 +4,8 @@
             <p class="flex px-2 pb-0 pt-2 text-lg font-bold h-5">Mesas</p>
             <p class="flex px-2 pb-2 pt-0 border-b-2 text-sm ">{{ lista_mesas.length }} mesas.</p>
         </div>
-        <div class="flex flex-col justify-center items-start pl-4 pt-3" >      
-            <bannermesa class="" v-for="mesa in lista_mesas" :key="mesa.id" :nomemesa="mesa.nome" :sistema="mesa.sistema" :mesasrc="mesa.imgmesa"/>
+        <div class="flex flex-col justify-evenly pl-0 pt-0 pb-2 mx-auto" >      
+            <bannermesa class="mt-12" v-for="mesa in lista_mesas" :key="mesa.id" :nomemesa="mesa.nome" :sistema="mesa.sistema" :mesasrc="mesa.imgmesa"/>
         </div>
     </div>
    
@@ -17,7 +17,7 @@ import bannermesa from '../ui/banner-mesa.vue'
 import useUserStore from '../../stores/usuario'
 
 export default {
-    props: ['id'],
+    props: ['id', 'modo'],
     components: {
         bannermesa
     },
@@ -32,13 +32,13 @@ export default {
     methods: {
         ...mapActions(useUserStore, ['pegarDadosUsuario']),
         pegarMesas(){
-            for(let j = 0; j <this.usuario[0].mesas.length; j++){
+            for(let j = 0; j <this.usuario.mesas.length; j++){
             
                         let mesa = {
-                            id: this.usuario[0].mesas[j].id,
-                            nome: this.usuario[0].mesas[j].nome,
-                            sistema:  this.usuario[0].mesas[j].sistema,
-                            imgmesa: this.usuario[0].mesas[j].imgmesa,
+                            id: this.usuario.mesas[j].id,
+                            nome: this.usuario.mesas[j].nome,
+                            sistema:  this.usuario.mesas[j].sistema,
+                            imgmesa: this.usuario.mesas[j].imgmesa,
                         }
                         this.lista_mesas.push(mesa)
             }

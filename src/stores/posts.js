@@ -4,11 +4,20 @@ import { defineStore} from 'pinia'
 const usePostsStore = defineStore('posts', {
 
     state: () => ( {
-        posts: []
+        posts: [],
+        posts_usuario: []
     }),
 
     actions: {
-        pegarPostsUsuarios(){
+        pegarPostsUsuario(id){
+            let usuario = dados_usuarios.find((usuario) => {
+                return usuario.id === Number(id)
+            })
+            this.posts_usuario = usuario.postsTexto;
+
+            console.log(usuario.postsTexto);
+        },
+        pegarTodosOsPosts(){
             for(let i = 0; i < dados_usuarios.length; i++){
                 for(let j = 0; j < dados_usuarios[i].postsTexto.length; j++){
                     let postSimples = {
@@ -25,9 +34,6 @@ const usePostsStore = defineStore('posts', {
                     //console.log(this.posts);
                 }
             }
-        },
-        pegarIdPost(){
-
         },
         criarPost(post){
             this.posts.push(post);

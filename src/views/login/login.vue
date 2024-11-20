@@ -62,7 +62,7 @@ export default {
             this.carregando = true;
             setTimeout(async () => {   
                 //Redireciona para a rota com o id do usuário. 
-                await this.$router.push("/home/1/perfil");
+                await this.$router.push("/home/perfil");
                 this.carregando = false;
             }, 3000)
         }

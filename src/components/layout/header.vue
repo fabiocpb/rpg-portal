@@ -1,9 +1,17 @@
 <template>
-    <div class="border-2 w-full">
-            <div class="flex flex-row bg-orange-600 w-full py-0 justify-start items-center shadow-md">
+    <div class="flex flex-row border-2 w-full bg-orange-600 items-center">
+        <router-link to="/home/perfil" class="no-underline flex flex-row itens-center mx-auto">
+            <div class="flex flex-row w-full py-0 items-center shadow-md">
                 <div class=""><img src="/images/logo RPG - Club-03.png"  class="logo"></div>
-                <div class="fontTopBar pl-1">Olá <b>{{ usuario[0].nome }}</b>!</div>
+                <div class="fontTopBar pl-1">Olá <b>{{ usuario.nome }}</b>!</div>
             </div>
+        </router-link> 
+        <router-link to="/login" class="no-underline flex flex-row itens-center mx-auto">
+            <div class="flex flex-row w-1/2 py-0 justify-center items-center">
+                <v-icon name="io-exit-outline" inverse scale="1.3"/>
+                <div class="fontTopBar pl-1">Sair</div>
+            </div>
+        </router-link> 
     </div>
     <!-- <div class="base">
         <nav class="navbar navbar-expand-lg">
@@ -37,15 +45,18 @@ import {mapState, mapActions} from 'pinia'
 // import dados_usuarios from '../../data/usuarios.json'
 import useUserStore from '../../stores/usuario' 
 export default {
-    props:['id'],
     computed: {
-        ...mapState(useUserStore, ['usuario'])
+        ...mapState(useUserStore, ['usuario', 'idUsuario'])
     },
     methods: {
         ...mapActions(useUserStore, ['pegarDadosUsuario']),
     }, 
     created(){
-      this.pegarDadosUsuario(this.id);
+      this.pegarDadosUsuario(this.idUsuario);
+      console.log(this.usuario);
+    },
+    updated(){
+      this.pegarDadosUsuario(this.idUsuario);
       console.log(this.usuario);
     }
 }

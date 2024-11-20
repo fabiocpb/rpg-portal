@@ -1,16 +1,32 @@
 <template>
     <div class="flex flex-col justify-start items-center mx-8">
-          <profile-data
-            :apelido="usuario[0].nome"
-            :cidade="usuario[0].cidade"
-            :pais="usuario[0].pais"
-            :rpgs="usuario[0].rpgs"
-            :boardgames="usuario[0].boardgames"
-            :egresso="usuario[0].egresso"
-            :profimg="usuario[0].profimg"
+      <div v-if="modo === 'privado'">
+        <profile-data
+            :apelido="usuario.nome"
+            :cidade="usuario.cidade"
+            :pais="usuario.pais"
+            :rpgs="usuario.rpgs"
+            :boardgames="usuario.boardgames"
+            :egresso="usuario.egresso"
+            :profimg="usuario.profimg"
         ></profile-data>
-        <amigos :id="usuario[0].id"/>
-        <mesas :id="usuario[0].id"/>
+        <amigos :id="usuario.id" modo="privado"/>
+        <mesas :id="usuario.id"/>
+      </div>
+      <div v-else>
+        <profile-data
+            :apelido="usuarioPublico.nome"
+            :cidade="usuarioPublico.cidade"
+            :pais="usuarioPublico.pais"
+            :rpgs="usuarioPublico.rpgs"
+            :boardgames="usuarioPublico.boardgames"
+            :egresso="usuarioPublico.egresso"
+            :profimg="usuarioPublico.profimg"
+        ></profile-data>
+        <amigos :id="usuarioPublico.id" modo="publico"/>
+        <mesas :id="usuarioPublico.id"/>
+      </div>
+         
     </div>
 </template>
 
@@ -21,20 +37,32 @@ import amigos from '../amigos/amigos.vue'
 import mesas from '../mesas/mesas.vue'
 
 export default {
+  props: ['id', 'modo'],
   components: {
     amigos,
     mesas
   },
-  props: ['id'],
   computed: {
-        ...mapState(useUserStore, ['usuario'])
+        ...mapState(useUserStore, ['usuario', 'idUsuario', 'usuarioPublico'])
     },
     methods: {
         ...mapActions(useUserStore, ['pegarDadosUsuario']),
     }, 
     created(){
-      this.pegarDadosUsuario(this.id);
-      console.log(this.usuario);
+      if(this.modo === 'privado'){
+        this.pegarDadosUsuario(this.idUsuario, 'privado');
+        //console.log(this.usuario);
+      }else{
+        this.pegarDadosUsuario(this.id, 'publico');
+      }
+    },
+    updated(){
+      if(this.modo === 'privado'){
+        this.pegarDadosUsuario(this.idUsuario, 'privado');
+        //console.log(this.usuario);
+      }else{
+        this.pegarDadosUsuario(this.id, 'publico');
+      }
     }
 }
 </script>
